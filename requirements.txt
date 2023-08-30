@@ -3,3 +3,12 @@ pandas
 streamlit
 numpy 
 torchvision
+opencv-python-headless==4.5.3.56
+matplotlib==3.4.3
+bokeh==2.1.1
+torch==1.11.0
+tqdm==4.63.0
+ipywidgets==7.6.5
+livelossplot==0.5.4
+pytest==7.1.1
+seaborn==0.11.2

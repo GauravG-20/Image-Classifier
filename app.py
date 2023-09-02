@@ -26,7 +26,7 @@ def classify_image(model, img):
     return top_classes
 
 def main():
-    st.title("Landmark Image Classifier")
+    st.title("Landmark Image Recognition App")
 
     # Load the model
     with st.spinner('Loading the model...'):

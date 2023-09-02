@@ -1,95 +1,72 @@
+# Landmark Image Recognition App
+
+Welcome to the Landmark Image Recognition App project! In this project, I have developed an application that can predict the most likely locations where user-supplied images were taken. The app uses Convolutional Neural Networks (CNNs) to analyze and classify landmarks in images.
+
 ## Project Overview
 
-Welcome to the Convolutional Neural Networks (CNN) project!
-In this project, you will learn how to build a pipeline to process real-world, user-supplied images and to put your model into an app.
-Given an image, your app will predict the most likely locations where the image was taken.
+The goal of this project is to create an app that can identify landmarks in user-uploaded images. Landmark recognition can be valuable for photo-sharing and storage services, as it allows them to associate location data with images, improving the user experience. This is especially useful when images lack location metadata, which can happen if the camera does not have GPS or for privacy reasons.
 
-By completing this lab, you demonstrate your understanding of the challenges involved in piecing together a series of models designed to perform various tasks in a data processing pipeline. 
+The app takes any user-supplied image as input and suggests the top k most relevant landmarks from a set of 50 possible landmarks from around the world.
 
-Each model has its strengths and weaknesses, and engineering a real-world application often involves solving many problems without a perfect answer.
-
-### Why We're Here
-
-Photo sharing and photo storage services like to have location data for each photo that is uploaded. With the location data, these services can build advanced features, such as automatic suggestion of relevant tags or automatic photo organization, which help provide a compelling user experience. Although a photo's location can often be obtained by looking at the photo's metadata, many photos uploaded to these services will not have location metadata available. This can happen when, for example, the camera capturing the picture does not have GPS or if a photo's metadata is scrubbed due to privacy concerns.
-
-If no location metadata for an image is available, one way to infer the location is to detect and classify a discernable landmark in the image. Given the large number of landmarks across the world and the immense volume of images that are uploaded to photo sharing services, using human judgement to classify these landmarks would not be feasible.
-
-In this project, you will take the first steps towards addressing this problem by building a CNN-powered app to automatically predict the location of the image based on any landmarks depicted in the image. At the end of this project, your app will accept any user-supplied image as input and suggest the top k most relevant landmarks from 50 possible landmarks from across the world.
-
+## Features
+⚡Multi Label Image Classification  
+⚡Cutsom CNN  
+⚡Transfer Learning CNN  
+⚡PyTorch
 
 ## Project Instructions
 
-### Getting started
+### Development Environment
 
-You have two choices for completing this project. You can work locally on your machine (NVIDIA GPU highly recommended), or you can work in the provided Udacity workspace that you can find in your classroom.
+I have worked on this project in the Udacity Project Workspace, utilizing the provided GPU to speed up computations. The environment was already set up, including the starter code, which allowed me to focus on building the project.
 
-#### Setting up in the Udacity Project Workspace
-You can find the Udacity Project Workspace in your Udacity classroom, in the Project section.
+### Project Development
 
-1. Start the workspace by clicking on `Project Workspace` in the left menu in the page
-2. When prompted on whether you want a GPU or not, please ANSWER YES (the GPU is going to make everything several times faster)
+I followed the project instructions step by step:
 
-The environment is already setup for you, including the starter code, so you can jump right into building the project!
+1. **Building CNN from Scratch**: I started by working on the `cnn_from_scratch.ipynb` notebook. In this notebook, I built a CNN model from scratch, trained it on landmark images, and evaluated its performance.
 
-#### Setting up locally
+2. **Transfer Learning**: The next step was to use transfer learning to improve model performance. I worked on the `transfer_learning.ipynb` notebook, where I fine-tuned a pre-trained model (ResNet-50) for landmark recognition.
 
-This setup requires a bit of familiarity with creating a working deep learning environment. While things should work out of the box, in case of problems you might have to do operations on your system (like installing new NVIDIA drivers) that are not covered in the class. Please do this if you are at least a bit familiar with these subjects, otherwise please consider using the provided Udacity workspace that you find in the classroom.
+3. **App Development**: Finally, I created the Landmark Recognition App in the `app.ipynb` notebook. This app accepts user-supplied images and predicts the most likely landmarks based on the trained model.
 
-1. Open a terminal and clone the repository, then navigate to the downloaded folder:
-	
-	```	
-		git clone https://github.com/udacity/cd1821-CNN-project-starter.git
-		cd cd1821-CNN-project-starter
-	```
-    
-2. Create a new conda environment with python 3.7.6:
+### Evaluation
 
-    ```
-        conda create --name udacity_cnn_project -y python=3.7.6
-        conda activate udacity_cnn_project
-    ```
-    
-    NOTE: you will have to execute `conda activate udacity_cnn_project` for every new terminal session.
-    
-3. Install the requirements of the project:
+To ensure the project met the requirements, I reviewed the CNN project rubric provided by Udacity and self-evaluated my project against it. I made sure that all criteria in the rubric were met to the best of my abilities.
 
-    ```
-        pip install -r requirements.txt
-    ```
+### Dataset Information
 
-4. Install and open Jupyter lab:
-	
-	```
-        pip install jupyterlab
-		jupyter lab
-	```
+The landmark images used in this project are a subset of the Google Landmarks Dataset v2.
 
-### Developing your project
+<img src="https://github.com/GauravG-20/Landmark-Image-Classifier/blob/main/dataset.png?raw=true">
 
-Now that you have a working environment, execute the following steps:
+## Project Results
 
->**Note:** Complete the following notebooks in order, do not move to the next step if you didn't complete the previous one.
+### Training Graphs
 
-1. Open the `cnn_from_scratch.ipynb` notebook and follow the instructions there
-2. Open `transfer_learning.ipynb` and follow the instructions
-3. Open `app.ipynb` and follow the instructions there
+Here are some training graphs showing the model's performance during training.
 
-## Evaluation
+#### CNN from Scratch Training Loss and Accuracy
+![CNN Training Loss and Accuracy](https://raw.githubusercontent.com/GauravG-20/Landmark-Image-Classifier/main/scratch_training_graph.png)
 
-Your project will be reviewed by a Udacity reviewer against the CNN project rubric.  Review this rubric thoroughly and self-evaluate your project before submission.  All criteria found in the rubric must meet specifications for you to pass.
+#### Transfer Learning Training Loss and Accuracy
+![Transfer Learning Training Loss and Accuracy](https://raw.githubusercontent.com/GauravG-20/Landmark-Image-Classifier/main/transferred_training_graph.png)
 
-## Project Submission
+### Deployed App
 
-Your submission should consist of the github link to your repository.  Your repository should contain:
-- The `landmark.ipynb` file with fully functional code, all code cells executed and displaying output, and all questions answered.
-- An HTML or PDF export of the project notebook with the name `report.html` or `report.pdf`.
+I have deployed the Landmark Recognition App, and it is accessible via the following link: [Landmark Recognition App](https://landmark-classification.streamlit.app/).
 
-Please do __NOT__ include any of the project data sets provided in the `landmark_images/` folder.
+<img src="https://raw.githubusercontent.com/GauravG-20/Landmark-Image-Classifier/main/webapp_landmark_classifier.png">
 
-### Ready to submit your project?
+## Conclusion
 
-Click on the "Submit Project" button in the classroom and follow the instructions to submit!
+This project allowed me to gain valuable experience in building a real-world image recognition application using deep learning techniques. I learned how to develop CNN models from scratch, apply transfer learning to improve performance, and create a user-friendly app for landmark recognition. I also improved my skills in data preprocessing, model training, and evaluation.
 
-## Dataset Info
+If you have any questions or would like to explore the project in more detail, please feel free to reach out. Thank you for reviewing my Landmark Image Recognition App project!
 
-The landmark images are a subset of the Google Landmarks Dataset v2.
+## License
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+## Get in touch
+[![email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:gauravgupta.092002@gmail.com)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gaurav-gupta-911463210/)
